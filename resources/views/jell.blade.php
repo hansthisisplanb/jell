@@ -15,6 +15,14 @@
 		var time  = document.getElementById('time').value;
 		var cost = document.getElementById('cost').value;
 		var worktype = document.getElementById('worktype').value;
+		if(isNaN(time)) {
+			alert('Please enter a numeric for Time');
+			return false;
+		}
+		if(isNaN(cost)) {
+			alert('Please enter a numeric for Cost');
+			return false;
+		}
 		//end: set the values of each fields
 		
 		if(ref=='minhour' && minhour=='h'){
@@ -29,20 +37,21 @@
 		if(ref=='cost'){
 			//if cost was changed, take that value and set the time value
 			if(minhour=='m') {
-				document.getElementById('time').value = ((cost/worktype)*60).toFixed(2);
-				document.getElementById('cost').value = cost.toFixed(2);
+				var a = ((cost/worktype)*60);
+				document.getElementById('time').value = a.toFixed(2);
 			} else {
-				document.getElementById('time').value = (cost/worktype).toFixed(2);
-				document.getElementById('cost').value = cost.toFixed(2);
+				var a = (cost/worktype);
+				document.getElementById('time').value = a.toFixed(2);
 			}
 		} else {
 			//if time was changed, take that value and set the time cost
 			document.getElementById('time').value = time;
 			if(minhour=='m') {
-				document.getElementById('cost').value = ((time*worktype)/60).toFixed(2);
+				var a = ((time*worktype)/60);
+				document.getElementById('cost').value = a.toFixed(2);
 			} else {
-				document.getElementById('time').value = time.toFixed(2);
-				document.getElementById('cost').value = (time*worktype).toFixed(2);
+				var a = (time*worktype);
+				document.getElementById('cost').value = a.toFixed(2);
 			}
 		} 
 	}

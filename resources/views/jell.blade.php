@@ -41,7 +41,7 @@
 			if(minhour=='m') {
 				document.getElementById('cost').value = ((time*worktype)/60).toFixed(2);
 			} else {
-				document.getElementById('time').value = (time);
+				document.getElementById('time').value = time.toFixed(2);
 				document.getElementById('cost').value = (time*worktype).toFixed(2);
 			}
 		} 
